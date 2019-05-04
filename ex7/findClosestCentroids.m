@@ -20,8 +20,16 @@ idx = zeros(size(X,1), 1);
 %
 % Note: You can use a for-loop over the examples to compute this.
 %
-
-
+X
+centroids
+for i = 1:size(X,1)
+    distances = [];
+  for j = 1:(size(centroids,1))
+    distances(j) = sum((X(i,:)-centroids(j,:)).^2);
+  endfor
+  [minval, index] = min(distances);
+  idx(i) = index;  
+endfor
 
 
 

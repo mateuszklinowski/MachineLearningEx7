@@ -27,7 +27,19 @@ centroids = zeros(K, n);
 %
 
 
-
+for i = 1:K
+  assigned_points_idx = find(idx == i);
+  
+  n = size(assigned_points_idx,1);
+  
+  points_sum = [];
+  
+  for j = 1:n
+    points_sum(j,:) = X(assigned_points_idx(j),:);
+  endfor 
+  
+  centroids(i,:) = (1/n) * sum(points_sum);
+endfor
 
 
 

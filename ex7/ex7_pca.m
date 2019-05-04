@@ -197,14 +197,14 @@ A = double(imread('bird_small.png'));
 A = A / 255;
 img_size = size(A);
 X = reshape(A, img_size(1) * img_size(2), 3);
-K = 16; 
+K = 2; 
 max_iters = 10;
 initial_centroids = kMeansInitCentroids(X, K);
 [centroids, idx] = runkMeans(X, initial_centroids, max_iters);
 
 %  Sample 1000 random indexes (since working with all the data is
 %  too expensive. If you have a fast computer, you may increase this.
-sel = floor(rand(1000, 1) * size(X, 1)) + 1;
+sel = floor(rand(5000, 1) * size(X, 1)) + 1;
 
 %  Setup Color Palette
 palette = hsv(K);
